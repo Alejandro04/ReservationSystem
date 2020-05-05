@@ -1,10 +1,12 @@
 init()
-
+getAllBookings()
 
 let button = document.getElementById("action")
-button.addEventListener("click", function () {
-    getData()
-})
+if (button) {
+    button.addEventListener("click", function () {
+        getData()
+    })
+}
 
 function init() {
     // Your web app's Firebase configuration
@@ -171,7 +173,7 @@ function reserve(name, lastName, phone, email, date, time) {
                 'Reserva Exitosa!',
                 '',
                 'success'
-              )
+            )
         })
         .catch(function (error) {
             console.error("Error adding document: ", error);
@@ -185,4 +187,40 @@ function cleanInputs() {
     document.getElementById('phone').value = ''
     document.getElementById('date').value = ''
     document.getElementById('time').value = ''
+}
+
+
+function getAllBookings() {
+    let table = document.getElementById('tableBody')
+
+    if (table) {
+        db.collection("bookings").onSnapshot((querySnapshot) => {
+            table.innerHTML = ''
+            querySnapshot.forEach((doc) => {
+
+                table.innerHTML += `
+                <div class="bodyBookings">
+                    <div class="item">
+                    ${doc.data().name}
+                    </div>
+                    <div class="item">
+                    ${doc.data().lastName}
+                    </div>
+                    <div class="item">
+                    ${doc.data().phone}
+                    </div>
+                    <div class="item">
+                    ${doc.data().email}
+                    </div>
+                    <div class="item">
+                    ${doc.data().date}
+                    </div>
+                    <div class="item">
+                    ${doc.data().time}
+                    </div>
+                </div>
+            `
+            });
+        });
+    }
 }
