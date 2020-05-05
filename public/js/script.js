@@ -167,6 +167,11 @@ function reserve(name, lastName, phone, email, date, time) {
         .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
             cleanInputs()
+            Swal.fire(
+                'Reserva Exitosa!',
+                '',
+                'success'
+              )
         })
         .catch(function (error) {
             console.error("Error adding document: ", error);
