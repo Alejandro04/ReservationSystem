@@ -27,7 +27,7 @@ app.use(require('./routes/index'));
 app.use(require('./routes/admin'));
 
 // Static Files
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static('public'));
 
 // Server is listenning
 app.listen(app.get('port'), () => {
