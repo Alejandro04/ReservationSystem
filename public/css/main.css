@@ -69,6 +69,28 @@ input[type="time"]{
     display: none;
 }
 
+/**************ADMIN**************/
+.booking-container{
+    display: flex;
+    flex-direction: column;
+}
+.headerBookings, .bodyBookings{
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    margin: 0 10px;
+}
+.headerBookings{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 10px 0;
+    border-bottom: 2px solid #8E2DE2;
+}
+.item{
+    width: 100%;
+    padding: 20px 0;
+}
+
 @keyframes moveUp {
     0%{
         opacity: 0;
@@ -78,6 +100,12 @@ input[type="time"]{
     100%{
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 990px){
+    .booking-container{
+        display: none;
     }
 }
 
