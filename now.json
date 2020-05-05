@@ -6,10 +6,6 @@
             "use": "@now/node-server"
         },
         {
-            "src": "src/**",
-            "use": "@now/static"
-        },
-        {
             "src": "./src",
             "use": "@now/static"
         }
