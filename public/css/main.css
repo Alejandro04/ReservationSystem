@@ -56,6 +56,13 @@ input[type="time"]{
     cursor: pointer;
     background-color: rgba(221, 218, 218, 0.932);
 }
+.validate-text-active{
+    color: red;
+    display: block;
+}
+.validate-text-inactive{
+    display: none;
+}
 
 @keyframes moveUp {
     0%{
