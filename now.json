@@ -3,11 +3,11 @@
     "builds": [
         {
             "src": "index.js",
-            "use": "@now/node-server"
-        },
-        {
-            "src": "./src",
-            "use": "@now/static"
+            "use": "@now/node-server",
+            "config": {
+                "includeFiles": ["src/*"],
+                "bundle": false
+              }
         }
     ],
     "routes": [
