@@ -1,8 +1,28 @@
-let button = document.getElementById("action")
+init()
 
+
+let button = document.getElementById("action")
 button.addEventListener("click", function () {
     getData()
 })
+
+function init() {
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyA96r1tgimh6q0HzFWBTfjz0JAi-DxAzMc",
+        authDomain: "reservas-fb141.firebaseapp.com",
+        databaseURL: "https://reservas-fb141.firebaseio.com",
+        projectId: "reservas-fb141",
+        storageBucket: "reservas-fb141.appspot.com",
+        messagingSenderId: "124041533280",
+        appId: "1:124041533280:web:c1df7d5227a133f513f005",
+        measurementId: "G-G2V8SNPK8N"
+    };
+    // Initialize Firebase
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+}
 
 function getData() {
     /** LABELS **/
@@ -135,4 +155,29 @@ function validate
 
 function reserve(name, lastName, phone, email, date, time) {
     console.log("reservando..")
+
+    db.collection("bookings").add({
+        name: name,
+        lastName: lastName,
+        phone: phone,
+        email: email,
+        date: date,
+        time: time
+    })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            cleanInputs()
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+}
+
+function cleanInputs() {
+    document.getElementById('name').value = ''
+    document.getElementById('lastName').value = ''
+    document.getElementById('email').value = ''
+    document.getElementById('phone').value = ''
+    document.getElementById('date').value = ''
+    document.getElementById('time').value = ''
 }
