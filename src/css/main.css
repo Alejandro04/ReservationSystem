@@ -73,6 +73,7 @@ input[type="time"]{
 .booking-container{
     display: flex;
     flex-direction: column;
+    padding: 0 80px;
 }
 .headerBookings, .bodyBookings{
     display: flex;
